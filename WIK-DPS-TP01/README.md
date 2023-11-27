@@ -1,0 +1,6 @@
+- Télécharger le repository  
+- Télécharger node.js (Exécuter la commande "npm install" pour vérifier les mise à jour)
+- Exécuter npx tsc
+- Sur un premier terminal, exécuter "npm build/index.js"
+- Ouvrir un deuxième terminal et éxecuter des curls sur "http://localhost:8000" ou ouvrir une page internet à cette adresse
+- Vérifier les headers
