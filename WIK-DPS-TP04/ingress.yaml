@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: echoingress 
+  namespace: ns-echo
+spec:
+  rules:
+  - host: yworld.com
+    http:
+      paths:
+      - path: /etc/hosts
+        pathType: Prefix
+        backend:
+          service:
+            name: Yservice
+            port:
+              number: 8082
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  strategy:
+    type: RollingUpdate
+    maxUnavailable: 50%
+  replicas: 4
+  containers:
+  - name: echoserver
+    image: registry.cluster.wik.cloud/public/echo
+    ports:
+    - containerPort: 8080

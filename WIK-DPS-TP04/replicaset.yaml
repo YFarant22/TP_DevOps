@@ -1,0 +1,11 @@
+apiVersion: v1.25.2
+kind: ReplicaSet
+metadata:
+  name: echoreplica
+  namespace: ns-echo
+spec:
+  containers:
+  - name: echoserver
+    image: registry.cluster.wik.cloud/public/echo
+    ports:
+    - containerPort: 8080
